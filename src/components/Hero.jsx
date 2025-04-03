@@ -30,7 +30,7 @@ const Hero = () => {
       color={colorMode === 'dark' ? 'white' : 'gray.800'}
       overflow="hidden"
     >
-      <Container maxW="100vw" px={4}>
+      <Container maxW="container.lg" px={4} textAlign="center">
         <VStack spacing={8} align="center" textAlign="center">
           <motion.div
             initial={{ y: 50, opacity: 0 }}
@@ -56,7 +56,7 @@ const Hero = () => {
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.5 }}
           >
-            <Text fontSize="xl" maxW="600px" color={colorMode === 'dark' ? 'gray.300' : 'gray.600'} mb={4}>
+            <Text fontSize="xl" maxW="700px" color={colorMode === 'dark' ? 'gray.300' : 'gray.600'} mb={4}>
               Full Stack Developer & Gaming Content Creator
             </Text>
             <Text fontSize="md" maxW="700px" color={colorMode === 'dark' ? 'gray.400' : 'gray.600'} lineHeight="tall">
