@@ -31,7 +31,7 @@ const Hero = () => {
       overflow="hidden"
     >
       <Container maxW="container.lg" px={4} textAlign="center">
-        <VStack spacing={8} align="center" textAlign="center">
+        <VStack spacing={12} align="center" textAlign="center">
           <motion.div
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -43,11 +43,17 @@ const Hero = () => {
               bgGradient="linear(to-r, #FF0080, #7928CA)"
               bgClip="text"
               fontWeight="extrabold"
+              mb={4}
+              lineHeight={1.5}
             >
               Aung Zaw Myo
             </Heading>
-            <Text fontSize="2xl" color={colorMode === 'dark' ? 'gray.400' : 'gray.600'} mt={2}>
-              aka Oppai
+            <Text fontSize="2xl" color={colorMode === 'dark' ? 'gray.400' : 'gray.600'} mt={4}>
+              aka 
+              <br />
+              <Text as="span" fontWeight="bold" color="purple.400">
+                Oppai The Original 
+              </Text>
             </Text>
           </motion.div>
 
