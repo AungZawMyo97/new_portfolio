@@ -3,6 +3,7 @@ import { ThemeProvider } from './context/ThemeContext';
 import Hero from './components/Hero';
 import Projects from './components/Projects';
 import ThemeToggle from './components/ThemeToggle';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <ThemeToggle />
           <Hero />
           <Projects />
+          <Footer />
         </Box>
       </ThemeProvider>
     </ChakraProvider>
