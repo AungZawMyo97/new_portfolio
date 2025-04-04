@@ -1,94 +1,10 @@
 import { motion } from 'framer-motion';
 import { Box, Container, Heading, Text, SimpleGrid, VStack, Tag, HStack, useColorMode } from '@chakra-ui/react';
+import projectsData from '../data/projects.json';
 
 const Projects = () => {
   const { colorMode } = useColorMode();
-  const projects = [
-    {
-      title: 'Balance Confirmation (uabpay app)',
-      company: 'uab Bank Myanmar',
-      description: 'Developed back-end APIs for uabpay Digital Wallet to generate bank balance confirmation statements with secure email delivery.',
-      role: 'Backend Developer',
-      technologies: ['ASP.NET Core', '.NET Framework', 'RESTFUL API', 'XML', 'Core Banking Integration'],
-      highlights: [
-        'Developed back-end APIs for direct download and E-mail sending features',
-        'Added encrypted request/response body schema for security',
-        'Implemented session control to prevent fraud and illegal access',
-        'Integrated with Core Banking system for account information retrieval',
-        'Developed SOAP API with XML format for Core Banking communication',
-        'Implemented secure email delivery using Mailgun APIs'
-      ]
-    },
-    {
-      title: 'SGH+ App',
-      company: 'uab Bank Myanmar',
-      description: 'A white label wallet application developed in collaboration with Sein Gay Har shopping mart for seamless payments and transactions.',
-      role: 'Backend Developer',
-      technologies: ['ASP.NET Core', '.NET Framework', 'API Development', 'Payment Integration', 'Transaction Systems'],
-      highlights: [
-        'Developed core back-end APIs for user registration and authentication',
-        'Implemented payment system APIs for various transaction scenarios',
-        'Optimized transaction flows to align with existing voucher systems',
-        'Deployed and maintained system in UAT environment with ongoing support'
-      ]
-    },
-    {
-      title: 'Admin Portal for MAI Xtra',
-      company: 'uab Bank Myanmar',
-      description: 'Developed a comprehensive MVC web application for managing daily transactions and user registrations in the MAI Xtra system.',
-      role: 'Full Stack Developer',
-      technologies: ['ASP.NET Core MVC', 'ASP.NET', '.NET Framework', 'C#', 'Entity Framework Core', 'SQL Server'],
-      highlights: [
-        'Designed and implemented intuitive admin interface for transaction monitoring',
-        'Created efficient database schema ensuring scalability and maintainability',
-        'Implemented clean MVC architecture with modular design patterns',
-        'Developed CRUD operations for entity management',
-        'Integrated role-based access control for secure feature access'
-      ]
-    },
-    {
-      title: 'Aung Bar Lay Lottery Payment API',
-      company: 'uab Bank Myanmar',
-      description: 'Developed and maintained third-party payment API integration for government lottery purchases through uabpay.',
-      role: 'API Integration Specialist',
-      technologies: ['ASP.NET Core', '.NET Framework', 'RESTful APIs', 'Payment Integration', 'Security Protocols', 'SHA256'],
-      highlights: [
-        'Integrated third-party payment API for secure lottery purchases',
-        'Implemented mobile app endpoints for payment processing',
-        'Ensured compliance with security standards for sensitive data',
-        'Implemented secure hash calculations using SHA256',
-        'Created comprehensive API documentation and guidelines'
-      ]
-    },
-    {
-      title: 'uabpay Merchant Portal',
-      company: 'uab Bank Myanmar',
-      description: 'Led the development of a comprehensive merchant portal web application for digital wallet payment services.',
-      role: 'Lead Developer',
-      technologies: ['ASP.NET Core MVC', 'ASP.NET', '.NET Framework', 'Web Development', 'Payment Systems', 'User Management', 'Security'],
-      highlights: [
-        'Developed core features including transaction monitoring and fund transfers',
-        'Implemented secure authentication and authorization systems',
-        'Created APIs for transaction processing and balance checking',
-        'Developed automated payroll system for merchant employees',
-        'Implemented user management with role-based access control'
-      ]
-    },
-    {
-      title: 'uabpay WinGold Campaign APIs',
-      company: 'uab Bank Myanmar',
-      description: 'Led the development of campaign APIs to drive user engagement and growth within the wallet system platform.',
-      role: 'Lead API Developer',
-      technologies: ['ASP.NET Core', '.NET Framework', 'RESTful APIs', 'User Engagement', 'Points System', 'Campaign Management'],
-      highlights: [
-        'Designed APIs for campaign functionality and point calculations',
-        'Implemented secure authentication for campaign data access',
-        'Developed algorithms for friend invitation point system',
-        'Created APIs for leaderboard and winner display',
-        'Successfully increased user registrations through campaign implementation'
-      ]
-    }
-  ];
+  const { projects } = projectsData;
 
   return (
     <Box
@@ -111,7 +27,7 @@ const Projects = () => {
             size="xl"
             mb={10}
             textAlign="center"
-            bgGradient="linear(to-r, #FF0080, #7928CA)"
+            bgGradient="linear(to-r, purple.400, pink.400)"
             bgClip="text"
           >
             Professional Projects
