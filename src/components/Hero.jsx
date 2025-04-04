@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
-import { Box, Container, Heading, Text, VStack, HStack, Icon, useColorMode } from '@chakra-ui/react';
+import { Box, Container, Heading, Text, VStack, HStack, Icon, useColorMode, Image } from '@chakra-ui/react';
 import { FaTwitch, FaYoutube, FaCode, FaGamepad } from 'react-icons/fa';
+import personalLogo from '../assets/personal_logo.png';
 
 const Hero = () => {
   const { colorMode } = useColorMode();
@@ -31,7 +32,42 @@ const Hero = () => {
       overflow="hidden"
     >
       <Container maxW="container.lg" px={4} textAlign="center">
-        <VStack spacing={12} align="center" textAlign="center">
+        <VStack spacing={8} align="center" textAlign="center">
+          <motion.div
+            initial={{ scale: 0, rotate: -180 }}
+            animate={{ 
+              scale: 1, 
+              rotate: 0,
+              y: [0, -10, 0]
+            }}
+            transition={{ 
+              duration: 1, 
+              type: "spring", 
+              stiffness: 260, 
+              damping: 20,
+              y: {
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }
+            }}
+          >
+            <Image
+              src={personalLogo}
+              alt="Personal Logo"
+              width="120px"
+              height="120px"
+              objectFit="contain"
+              borderRadius="full"
+              boxShadow={colorMode === 'dark' ? '0 0 15px rgba(255, 255, 255, 0.2)' : '0 0 15px rgba(0, 0, 0, 0.1)'}
+              filter={colorMode === 'dark' ? 'brightness(1)' : 'brightness(0.9)'}
+              transition="all 0.3s ease-in-out"
+              _hover={{
+                transform: 'scale(1.05)',
+                boxShadow: colorMode === 'dark' ? '0 0 20px rgba(255, 255, 255, 0.3)' : '0 0 20px rgba(0, 0, 0, 0.15)'
+              }}
+            />
+          </motion.div>
           <motion.div
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
