@@ -31,7 +31,7 @@ const Hero = () => {
       color={colorMode === 'dark' ? 'white' : 'gray.800'}
       overflow="hidden"
     >
-      <Container maxW="container.lg" px={4} textAlign="center">
+      <Container maxW="container.lg" px={4} py={8} textAlign="center">
         <VStack spacing={8} align="center" textAlign="center">
           <motion.div
             initial={{ scale: 0, rotate: -180 }}
@@ -108,48 +108,103 @@ const Hero = () => {
             </Text>
           </motion.div>
 
-          <HStack spacing={6} pt={4}>
-            {[
-              { icon: FaCode, label: "Developer", delay: 0.6 },
-              { icon: FaGamepad, label: "Gamer", delay: 0.7 },
-              { 
-                icon: FaYoutube, 
-                label: "YouTube", 
-                delay: 0.8,
-                link: "https://www.youtube.com/@original_oppai"
-              },
-              { 
-                icon: FaTwitch, 
-                label: "Twitch", 
-                delay: 0.9,
-                link: "https://www.twitch.tv/oppaitheoriginal"
-              }
-            ].map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: item.delay, duration: 0.5 }}
-              >
-                <VStack
-                  as={item.link ? "a" : "div"}
-                  href={item.link}
-                  target={item.link ? "_blank" : undefined}
-                  spacing={2}
-                  cursor={item.link ? "pointer" : "default"}
-                  _hover={{
-                    transform: "translateY(-5px)",
-                    transition: "transform 0.3s ease"
-                  }}
+          <Box width="100%" maxW="600px" pt={4}>
+            <HStack spacing={8} justify="center" mb={6}>
+              {[
+                { icon: FaCode, label: "Developer", delay: 0.6 },
+                { icon: FaGamepad, label: "Gamer", delay: 0.7 }
+              ].map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ y: 20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ delay: item.delay, duration: 0.5 }}
                 >
-                  <Icon as={item.icon} w={8} h={8} color="purple.400" />
-                  <Text fontSize="sm" color={colorMode === 'dark' ? 'gray.400' : 'gray.600'}>
-                    {item.label}
-                  </Text>
-                </VStack>
-              </motion.div>
-            ))}
-          </HStack>
+                  <VStack
+                    spacing={3}
+                    p={4}
+                    borderRadius="xl"
+                    bg={colorMode === 'dark' ? 'whiteAlpha.50' : 'blackAlpha.50'}
+                    _hover={{
+                      transform: "translateY(-5px)",
+                      bg: colorMode === 'dark' ? 'whiteAlpha.100' : 'blackAlpha.100',
+                      transition: "all 0.3s ease"
+                    }}
+                    width="150px"
+                    height="120px"
+                    justifyContent="center"
+                  >
+                    <Icon as={item.icon} w={10} h={10} color="purple.400" />
+                    <Text fontSize="md" fontWeight="medium" color={colorMode === 'dark' ? 'gray.300' : 'gray.700'}>
+                      {item.label}
+                    </Text>
+                  </VStack>
+                </motion.div>
+              ))}
+            </HStack>
+
+            <Box
+              height="1px"
+              width="80%"
+              mx="auto"
+              mb={6}
+              bgGradient="linear(to-r, transparent, purple.400, transparent)"
+            />
+
+            <HStack spacing={8} justify="center">
+              {[
+                { 
+                  icon: FaYoutube, 
+                  label: "YouTube", 
+                  delay: 0.8,
+                  link: "https://www.youtube.com/@original_oppai",
+                  hoverColor: "red.400"
+                },
+                { 
+                  icon: FaTwitch, 
+                  label: "Twitch", 
+                  delay: 0.9,
+                  link: "https://www.twitch.tv/oppaitheoriginal",
+                  hoverColor: "purple.500"
+                }
+              ].map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ y: 20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ delay: item.delay, duration: 0.5 }}
+                >
+                  <VStack
+                    as="a"
+                    href={item.link}
+                    target="_blank"
+                    spacing={3}
+                    p={4}
+                    borderRadius="xl"
+                    bg={colorMode === 'dark' ? 'whiteAlpha.50' : 'blackAlpha.50'}
+                    _hover={{
+                      transform: "translateY(-5px) scale(1.05)",
+                      bg: colorMode === 'dark' ? 'whiteAlpha.100' : 'blackAlpha.100',
+                      transition: "all 0.3s ease",
+                      '& svg': { color: item.hoverColor }
+                    }}
+                    width="150px"
+                    height="120px"
+                    justifyContent="center"
+                  >
+                    <Icon as={item.icon} w={10} h={10} color="purple.400" transition="color 0.3s ease" />
+                    <Text 
+                      fontSize="md" 
+                      fontWeight="medium" 
+                      color={colorMode === 'dark' ? 'gray.300' : 'gray.700'}
+                    >
+                      {item.label}
+                    </Text>
+                  </VStack>
+                </motion.div>
+              ))}
+            </HStack>
+          </Box>
         </VStack>
       </Container>
     </Box>
