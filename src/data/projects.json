@@ -101,7 +101,7 @@
         "title": "Applicant Tracking System",
         "company": "Recsite Design",
         "description": "Applicant Tracking System with React, Typescript, and ASP.Net Core.",
-        "role": "Lead API Developer",
+        "role": "Full Stack Developer",
         "technologies": ["ASP.NET Core", "ReactJs", "RESTful APIs", "Typescript", "SQL Server"],
         "highlights": [
           "Developing a recruitment-focused Applicant Tracking System (ATS) website using ASP.NET Core for the API and React for the front-end",
