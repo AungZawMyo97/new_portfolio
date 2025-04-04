@@ -151,6 +151,23 @@ const Hero = () => {
               bgGradient="linear(to-r, transparent, purple.400, transparent)"
             />
 
+            <motion.div
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.8, duration: 0.5 }}
+            >
+              <Heading
+                as="h3"
+                fontSize="xl"
+                mb={4}
+                bgGradient="linear(to-r, purple.400, pink.400)"
+                bgClip="text"
+                fontWeight="bold"
+              >
+                Follow My Content On
+              </Heading>
+            </motion.div>
+
             <HStack spacing={8} justify="center">
               {[
                 { 
