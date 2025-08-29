@@ -112,14 +112,19 @@ const Projects = () => {
                 minHeight="600px"
               >
                 {/* Project type badge */}
-                <Box position="absolute" top={4} right={4}>
+                <Box 
+                  position="absolute" 
+                  top={{ base: 2, md: 4 }} 
+                  right={{ base: 2, md: 4 }}
+                  zIndex={2}
+                >
                   <Badge
                     colorScheme="purple"
                     variant="solid"
-                    px={3}
-                    py={1}
+                    px={{ base: 2, md: 3 }}
+                    py={{ base: 1, md: 1 }}
                     borderRadius="full"
-                    fontSize="sm"
+                    fontSize={{ base: "xs", md: "sm" }}
                     fontWeight="bold"
                     bgGradient="linear(to-r, #7928CA, #FF0080)"
                   >
@@ -128,7 +133,7 @@ const Projects = () => {
                 </Box>
 
                 {/* Company name with icon */}
-                <HStack spacing={3} mb={4}>
+                <HStack spacing={3} mb={4} mt={{ base: 8, md: 0 }}>
                   <Icon as={FaRocket} color="purple.400" w={5} h={5} />
                   <Text 
                     color={colorMode === 'dark' ? 'purple.300' : 'purple.600'} 
