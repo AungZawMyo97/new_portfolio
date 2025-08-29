@@ -1,11 +1,23 @@
 import { motion } from 'framer-motion';
-import { Box, Container, Heading, Text, SimpleGrid, VStack, Tag, HStack, useColorMode, Badge, Icon } from '@chakra-ui/react';
+import { Box, Container, Heading, Text, SimpleGrid, VStack, Tag, HStack, useColorMode, Badge, Icon, Image } from '@chakra-ui/react';
 import { FaExternalLinkAlt, FaGithub, FaCode, FaRocket } from 'react-icons/fa';
 import projectsData from '../data/projects.json';
+import uabLogo from '../assets/uab.png';
+import recsiteLogo from '../assets/recsite.png';
 
 const Projects = () => {
   const { colorMode } = useColorMode();
   const { projects } = projectsData;
+
+  // Company logo mapping
+  const companyLogos = {
+    'uab Bank Myanmar': uabLogo,
+    'Recsite Design': recsiteLogo
+  };
+
+  const getCompanyLogo = (companyName) => {
+    return companyLogos[companyName] || null;
+  };
 
   return (
     <Box
@@ -132,9 +144,20 @@ const Projects = () => {
                   </Badge>
                 </Box>
 
-                {/* Company name with icon */}
+                {/* Company name with icon/logo */}
                 <HStack spacing={3} mb={4} mt={{ base: 8, md: 0 }}>
-                  <Icon as={FaRocket} color="purple.400" w={5} h={5} />
+                  {getCompanyLogo(project.company) ? (
+                    <Image
+                      src={getCompanyLogo(project.company)}
+                      alt={`${project.company} logo`}
+                      w={8}
+                      h={8}
+                      objectFit="contain"
+                      borderRadius="md"
+                    />
+                  ) : (
+                    <Icon as={FaRocket} color="purple.400" w={5} h={5} />
+                  )}
                   <Text 
                     color={colorMode === 'dark' ? 'purple.300' : 'purple.600'} 
                     fontSize="lg"
