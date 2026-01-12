@@ -5,7 +5,7 @@ import { FaBriefcase, FaCode, FaGitAlt } from 'react-icons/fa';
 const stats = [
     { label: 'Experience', value: '4 Years', icon: FaBriefcase, color: '#7928CA' },
     { label: 'Projects', value: '25+', icon: FaCode, color: '#FF0080' },
-    { label: 'Contributions', value: '100+', icon: FaGitAlt, color: '#00B5D8' },
+    { label: 'Contributions', value: '1000+', icon: FaGitAlt, color: '#00B5D8' },
 ];
 
 const Stats = () => {
