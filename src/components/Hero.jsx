@@ -246,46 +246,48 @@ const Hero = () => {
         </Stack>
 
         {/* Scroll Indicator - Styled Circle */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1 }}
-          style={{
-            position: 'absolute',
-            bottom: '5px',
-            left: '50%',
-            transform: 'translateX(-50%)',
-            zIndex: 30
-          }}
-        >
+        <Box display={{ base: 'none', md: 'block' }}>
           <motion.div
-            whileHover={{ scale: 1.1, backgroundColor: "rgba(255, 0, 128, 0.2)" }}
-            whileTap={{ scale: 0.9 }}
-            animate={{ y: [0, 8, 0] }}
-            transition={{ y: { duration: 2, repeat: Infinity, ease: "easeInOut" } }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1 }}
             style={{
-              width: '50px',
-              height: '50px',
-              borderRadius: '50%',
-              border: '1px solid rgba(255, 255, 255, 0.2)',
-              backgroundColor: colorMode === 'dark' ? 'rgba(255, 255, 255, 0.05)' : 'rgba(255, 255, 255, 0.5)',
-              backdropFilter: 'blur(10px)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              cursor: 'pointer',
-              boxShadow: '0 4px 20px rgba(0,0,0,0.1)'
-            }}
-            onClick={() => {
-              const projectsSection = document.getElementById('projects');
-              if (projectsSection) {
-                projectsSection.scrollIntoView({ behavior: 'smooth' });
-              }
+              position: 'absolute',
+              bottom: '5px',
+              left: '50%',
+              transform: 'translateX(-50%)',
+              zIndex: 30
             }}
           >
-            <Icon as={FaArrowDown} w={5} h={5} color={colorMode === 'dark' ? "white" : "gray.800"} />
+            <motion.div
+              whileHover={{ scale: 1.1, backgroundColor: "rgba(255, 0, 128, 0.2)" }}
+              whileTap={{ scale: 0.9 }}
+              animate={{ y: [0, 8, 0] }}
+              transition={{ y: { duration: 2, repeat: Infinity, ease: "easeInOut" } }}
+              style={{
+                width: '50px',
+                height: '50px',
+                borderRadius: '50%',
+                border: '1px solid rgba(255, 255, 255, 0.2)',
+                backgroundColor: colorMode === 'dark' ? 'rgba(255, 255, 255, 0.05)' : 'rgba(255, 255, 255, 0.5)',
+                backdropFilter: 'blur(10px)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                cursor: 'pointer',
+                boxShadow: '0 4px 20px rgba(0,0,0,0.1)'
+              }}
+              onClick={() => {
+                const projectsSection = document.getElementById('projects');
+                if (projectsSection) {
+                  projectsSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+            >
+              <Icon as={FaArrowDown} w={5} h={5} color={colorMode === 'dark' ? "white" : "gray.800"} />
+            </motion.div>
           </motion.div>
-        </motion.div>
+        </Box>
 
       </Container>
     </Box>
