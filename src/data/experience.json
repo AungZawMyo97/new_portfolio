@@ -1,0 +1,54 @@
+{
+    "summary": {
+        "years": "4+",
+        "title": "Years Experience",
+        "description": "Experienced .NET Backend Developer with expertise in architecting scalable financial systems and RESTful APIs."
+    },
+    "experience": [
+        {
+            "id": 1,
+            "role": ".Net Core Developer (Project-Based)",
+            "company": "Recsite Design",
+            "period": "June 2024 - Present",
+            "description": "Building Recruitment Websites with Umbraco CMS and .NET Core. Architecting high-performance solutions and developing robust RESTful APIs.",
+            "technologies": [
+                ".NET Core",
+                "Umbraco CMS",
+                "C#",
+                "RESTful APIs",
+                "SQL"
+            ],
+            "color": "#7928CA"
+        },
+        {
+            "id": 2,
+            "role": "Back-end Developer (.NET)",
+            "company": "uab Bank Head Office",
+            "period": "April 2023 - June 2024",
+            "description": "Led a team in architecting complex web applications using ASP.NET Core. Optimized SQL Server databases and implemented CI/CD pipelines in Azure DevOps.",
+            "technologies": [
+                "ASP.NET Core",
+                "C#",
+                "SQL Server",
+                "Azure DevOps",
+                "Agile/Scrum"
+            ],
+            "color": "#FF0080"
+        },
+        {
+            "id": 3,
+            "role": "Junior back-end Developer (.NET)",
+            "company": "uab Bank Head Office",
+            "period": "March 2022 - April 2023",
+            "description": "Developed back-end components using ASP.NET MVC and C#. Integrated RESTful APIs and utilized Entity Framework for database interactions.",
+            "technologies": [
+                "ASP.NET MVC",
+                "C#",
+                "Entity Framework",
+                "LINQ",
+                "RESTful APIs"
+            ],
+            "color": "#00B5D8"
+        }
+    ]
+}
