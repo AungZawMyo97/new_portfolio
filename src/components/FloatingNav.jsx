@@ -1,12 +1,13 @@
 import { motion } from 'framer-motion';
-import { Box, HStack, Icon, Text, useColorMode, VStack } from '@chakra-ui/react';
-import { FaHome, FaCode, FaEnvelope, FaArrowUp } from 'react-icons/fa';
+import { Box, HStack, Icon, Text, useColorMode, VStack, Tooltip } from '@chakra-ui/react';
+import { FaHome, FaCode, FaEnvelope, FaArrowUp, FaBriefcase } from 'react-icons/fa';
 
 const FloatingNav = () => {
   const { colorMode } = useColorMode();
 
   const navItems = [
     { icon: FaHome, label: 'Home', target: 'hero' },
+    { icon: FaBriefcase, label: 'Experience', target: 'experience' },
     { icon: FaCode, label: 'Projects', target: 'projects' },
     { icon: FaEnvelope, label: 'Contact', target: 'footer' }
   ];
@@ -25,96 +26,56 @@ const FloatingNav = () => {
   return (
     <Box
       position="fixed"
-      left="30px"
+      left="20px"
       top="50%"
       transform="translateY(-50%)"
-      zIndex={999}
+      zIndex={100}
+      display={{ base: 'none', md: 'block' }}
     >
       <VStack
-        spacing={3}
-        p={3}
+        spacing={6}
+        p={4}
         borderRadius="full"
-        bg={colorMode === 'dark' ? 
-          'rgba(255, 255, 255, 0.1)' : 
-          'rgba(255, 255, 255, 0.9)'
-        }
-        backdropFilter="blur(20px)"
-        border="1px solid"
-        borderColor={colorMode === 'dark' ? 
-          'rgba(255, 255, 255, 0.2)' : 
-          'rgba(255, 255, 255, 0.4)'
-        }
-        boxShadow={colorMode === 'dark' ? 
-          '0 8px 32px rgba(0, 0, 0, 0.3)' : 
-          '0 8px 32px rgba(0, 0, 0, 0.1)'
-        }
+        className="glass"
       >
-        {/* Navigation items */}
         {navItems.map((item, index) => (
-          <motion.div
-            key={index}
-            whileHover={{ scale: 1.1, x: 5 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <Box
-              p={3}
-              borderRadius="full"
-              bg="transparent"
-              _hover={{
-                bg: colorMode === 'dark' ? 
-                  'rgba(255, 255, 255, 0.1)' : 
-                  'rgba(120, 40, 202, 0.1)'
-              }}
-              cursor="pointer"
-              transition="all 0.3s ease"
+          <Tooltip key={index} label={item.label} placement="right" hasArrow bg="pink.500">
+            <motion.div
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.9 }}
               onClick={() => scrollToSection(item.target)}
-              title={item.label}
+              style={{ cursor: 'pointer' }}
             >
-              <Icon 
-                as={item.icon} 
-                w={5} 
-                h={5} 
-                color={colorMode === 'dark' ? 'gray.300' : 'gray.600'}
-                _hover={{
-                  color: colorMode === 'dark' ? 'white' : 'purple.500'
-                }}
-                transition="color 0.3s ease"
+              <Icon
+                as={item.icon}
+                w={5}
+                h={5}
+                color={colorMode === 'dark' ? "gray.400" : "gray.600"}
+                _hover={{ color: '#FF0080' }}
+                transition="color 0.2s"
               />
-            </Box>
-          </motion.div>
+            </motion.div>
+          </Tooltip>
         ))}
 
-        {/* Scroll to top button */}
-        <motion.div
-          whileHover={{ scale: 1.1, x: 5 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          <Box
-            p={3}
-            borderRadius="full"
-            bg="transparent"
-            _hover={{
-              bg: colorMode === 'dark' ? 
-                'rgba(255, 255, 255, 0.1)' : 
-                'rgba(120, 40, 202, 0.1)'
-            }}
-            cursor="pointer"
-            transition="all 0.3s ease"
+        <Box w="20px" h="1px" bg="gray.700" opacity={0.3} />
+
+        <Tooltip label="Scroll Top" placement="right" hasArrow bg="purple.500">
+          <motion.div
+            whileHover={{ y: -3 }}
+            whileTap={{ scale: 0.9 }}
             onClick={scrollToTop}
-            title="Scroll to top"
+            style={{ cursor: 'pointer' }}
           >
-            <Icon 
-              as={FaArrowUp} 
-              w={5} 
-              h={5} 
-              color={colorMode === 'dark' ? 'gray.300' : 'gray.600'}
-              _hover={{
-                color: colorMode === 'dark' ? 'white' : 'purple.500'
-              }}
-              transition="color 0.3s ease"
+            <Icon
+              as={FaArrowUp}
+              w={4}
+              h={4}
+              color={colorMode === 'dark' ? "gray.500" : "gray.400"}
+              _hover={{ color: '#7928CA' }}
             />
-          </Box>
-        </motion.div>
+          </motion.div>
+        </Tooltip>
       </VStack>
     </Box>
   );
