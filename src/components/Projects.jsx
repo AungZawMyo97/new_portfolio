@@ -1,7 +1,21 @@
-import { motion } from 'framer-motion';
-import { Box, Container, Heading, Text, SimpleGrid, VStack, Tag, HStack, useColorMode, Badge, Icon, Flex } from '@chakra-ui/react';
-import { FaExternalLinkAlt, FaGithub, FaCode, FaRocket } from 'react-icons/fa';
-import projectsData from '../data/projects.json';
+import { motion } from "framer-motion";
+import {
+  Box,
+  Container,
+  Heading,
+  Text,
+  SimpleGrid,
+  VStack,
+  Tag,
+  HStack,
+  useColorMode,
+  Badge,
+  Icon,
+  Flex,
+  Image,
+} from "@chakra-ui/react";
+import { FaExternalLinkAlt, FaGithub, FaCode, FaRocket } from "react-icons/fa";
+import projectsData from "../data/projects.json";
 
 const Projects = () => {
   const { colorMode } = useColorMode();
@@ -12,7 +26,7 @@ const Projects = () => {
       id="projects"
       as="section"
       py={24}
-      bg={colorMode === 'dark' ? "transparent" : "#f8fafc"}
+      bg={colorMode === "dark" ? "transparent" : "#f8fafc"}
       position="relative"
       overflow="hidden"
     >
@@ -32,17 +46,19 @@ const Projects = () => {
               fontWeight="900"
               fontSize={{ base: "4xl", md: "5xl", lg: "6xl" }}
               letterSpacing="tight"
+              lineHeight={1.3}
             >
               Professional Projects
             </Heading>
             <Text
               fontSize={{ base: "lg", md: "xl" }}
-              color={colorMode === 'dark' ? 'gray.400' : 'gray.600'}
+              color={colorMode === "dark" ? "gray.400" : "gray.600"}
               textAlign="center"
               maxW="600px"
               fontWeight="medium"
             >
-              Showcasing my expertise in full-stack development and innovative solutions
+              Showcasing my expertise in full-stack development and innovative
+              solutions
             </Text>
           </VStack>
         </motion.div>
@@ -78,13 +94,26 @@ const Projects = () => {
                   zIndex={0}
                 />
 
-                <Flex justify="space-between" align="start" mb={6} position="relative" zIndex={1}>
+                <Flex
+                  justify="space-between"
+                  align="start"
+                  mb={6}
+                  position="relative"
+                  zIndex={1}
+                >
                   <HStack spacing={3}>
                     <Box p={2} bg="rgba(121, 40, 202, 0.1)" borderRadius="lg">
-                      <Icon as={FaRocket} color="#7928CA" w={5} h={5} />
+                      <Image
+                        src={`${import.meta.env.BASE_URL}assets/${
+                          project.logo
+                        }`}
+                        alt="Company Logo"
+                        width={30}
+                        objectFit="cover"
+                      />
                     </Box>
                     <Text
-                      color={colorMode === 'dark' ? 'purple.200' : 'purple.800'}
+                      color={colorMode === "dark" ? "purple.200" : "purple.800"}
                       fontSize="sm"
                       fontWeight="bold"
                       textTransform="uppercase"
@@ -107,7 +136,7 @@ const Projects = () => {
 
                 <Heading
                   size="lg"
-                  color={colorMode === 'dark' ? 'white' : 'gray.800'}
+                  color={colorMode === "dark" ? "white" : "gray.800"}
                   mb={4}
                   fontWeight="800"
                   position="relative"
@@ -117,7 +146,7 @@ const Projects = () => {
                 </Heading>
 
                 <Text
-                  color={colorMode === 'dark' ? 'gray.300' : 'gray.600'}
+                  color={colorMode === "dark" ? "gray.300" : "gray.600"}
                   mb={8}
                   fontSize="md"
                   lineHeight="relaxed"
@@ -149,7 +178,11 @@ const Projects = () => {
 
                 {/* Highlights */}
                 <Box
-                  bg={colorMode === 'dark' ? "rgba(0,0,0,0.2)" : "rgba(255,255,255,0.5)"}
+                  bg={
+                    colorMode === "dark"
+                      ? "rgba(0,0,0,0.2)"
+                      : "rgba(255,255,255,0.5)"
+                  }
                   p={4}
                   borderRadius="xl"
                   position="relative"
@@ -159,12 +192,13 @@ const Projects = () => {
                     {project.highlights.slice(0, 3).map((highlight, i) => (
                       <HStack key={i} align="start" spacing={3}>
                         <Icon as={FaCode} color="pink.400" w={3} h={3} mt={1} />
-                        <Text fontSize="sm" color="gray.500">{highlight}</Text>
+                        <Text fontSize="sm" color="gray.500">
+                          {highlight}
+                        </Text>
                       </HStack>
                     ))}
                   </VStack>
                 </Box>
-
               </Box>
             </motion.div>
           ))}
