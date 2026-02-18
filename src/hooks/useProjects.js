@@ -1,27 +1,9 @@
-import { useState, useEffect } from "react";
-import { fetchProjects } from "../services/projectService";
+import projectsData from "../data/projects.json";
 
 export const useProjects = () => {
-  const [projects, setProjects] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const projects = Array.isArray(projectsData)
+    ? projectsData
+    : projectsData.projects || [];
 
-  useEffect(() => {
-    const loadProjects = async () => {
-      try {
-        setLoading(true);
-
-        const data = await fetchProjects();
-        setProjects(data);
-      } catch (err) {
-        setError(err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    loadProjects();
-  }, []);
-
-  return { projects, loading, error };
+  return { projects, loading: false, error: null };
 };
